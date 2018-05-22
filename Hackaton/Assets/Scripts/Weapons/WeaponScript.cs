@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour {
 	
-	public float fireRate = 0;
 	public float weaponCooldownPeriodInSeconds = 0;
 	public GameObject weaponProjectile;
-	public LayerMask notToHit;
+	//public LayerMask notToHit;
 	public string fireKey;
 
 	Transform firePoint;
@@ -24,12 +23,10 @@ public class WeaponScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (fireRate == 0) {
-			if (Input.GetButtonDown(fireKey))
-			{
-				FireWeapon();
-				timeStamp = Time.time + weaponCooldownPeriodInSeconds;
-			}
+		if (Input.GetButtonDown(fireKey))
+		{
+			FireWeapon();
+			timeStamp = Time.time + weaponCooldownPeriodInSeconds;
 		}
 	}
 
