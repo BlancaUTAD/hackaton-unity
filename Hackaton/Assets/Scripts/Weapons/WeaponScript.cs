@@ -5,18 +5,19 @@ using UnityEngine;
 public class WeaponScript : MonoBehaviour {
 	
 	public float fireRate = 0;
-	public float weaponCooldown = 0;
+	public float weaponCooldownPeriodInSeconds = 0;
 	public GameObject weaponProjectile;
 	public LayerMask notToHit;
 	public string fireKey;
 
 	Transform firePoint;
-	float timeToFire = 0;
+	float timeStamp = 0;
 
 	// Use this for initialization
 	void Awake () {
 		firePoint = transform.Find ("FirePoint");
-		if (firePoint == null) {
+		if (firePoint == null) 
+		{
 			Debug.LogError ("No FIRE POINT");
 		}
 	}
@@ -27,16 +28,9 @@ public class WeaponScript : MonoBehaviour {
 			if (Input.GetButtonDown(fireKey))
 			{
 				FireWeapon();
-			}
-		} 
-		else {
-			if (Input.GetButton(fireKey) && Time.time > timeToFire)
-			{
-				timeToFire = Time.time + 1 / fireRate;
-				FireWeapon();
+				timeStamp = Time.time + weaponCooldownPeriodInSeconds;
 			}
 		}
-
 	}
 
 	void FireWeapon (){
@@ -46,7 +40,10 @@ public class WeaponScript : MonoBehaviour {
 		} 
 		else 
 		{
-			Instantiate (weaponProjectile, firePoint);
+			if (timeStamp <= Time.time) 
+			{
+				Instantiate (weaponProjectile, firePoint);
+			}
 		}
 	}
 }
