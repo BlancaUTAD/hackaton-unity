@@ -5,23 +5,35 @@ using UnityEngine;
 public class jump : MonoBehaviour {
 
 	public float jumpHeight;
-	public Rigidbody2D rigiBody;
+	private Rigidbody2D rigiBody;
 	bool isGrounded;
+	private int playerNumber;
 
 	// Use this for initialization
 	void Start () {
-		
-		jumpHeight = 20f;
+
+		jumpHeight = 2f;
 		rigiBody = this.GetComponent<Rigidbody2D>();
+		playerNumber = this.GetComponent<Stats> ().playerNumber;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
-		
+		if (playerNumber == 1 && Input.GetKeyDown (KeyCode.W)) {
+			
 			if (isGrounded) {
-
+				Debug.Log ("Salta1");
+				Jump (jumpHeight);
+			}
+		} 
+		else if (playerNumber == 2 && Input.GetKeyDown (KeyCode.UpArrow)) 
+		{
+			
+			if (isGrounded) 
+			{
+				Debug.Log ("Salta2");
 				Jump (jumpHeight);
 			}
 		}
