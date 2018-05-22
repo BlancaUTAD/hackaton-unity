@@ -12,7 +12,7 @@ public class jump : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		jumpHeight = 2f;
+		jumpHeight = 10f;
 		rigiBody = this.GetComponent<Rigidbody2D>();
 		playerNumber = this.GetComponent<Stats> ().playerNumber;
 

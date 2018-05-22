@@ -12,7 +12,7 @@ public class horMove : MonoBehaviour {
 
 
 		rigid = this.gameObject.GetComponent<Rigidbody2D> ();
-		horImpulse = 20;
+		horImpulse = 160;
 	}
 
 
