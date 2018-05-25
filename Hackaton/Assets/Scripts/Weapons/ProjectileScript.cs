@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProyectileScript : MonoBehaviour {
+public class ProjectileScript : MonoBehaviour {
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -13,4 +15,7 @@ public class ProyectileScript : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
+
 }

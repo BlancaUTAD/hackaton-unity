@@ -10,6 +10,14 @@ public class horMove : MonoBehaviour {
 	private Stats myStats;
 	private float maxVelocity;
 
+	private Transform transformPlayer1;
+	private Transform transformPlayer2;
+
+	[HideInInspector]
+	public bool isMovingRightPlayer1 = true;
+	[HideInInspector]
+	public bool isMovingRightPlayer2 = true;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -24,26 +32,45 @@ public class horMove : MonoBehaviour {
 	
 		if (myStats.playerNumber == 1) 
 		{
+			transformPlayer1 = GetComponent<Transform> ();
 			if (Input.GetKey (KeyCode.A)) 
 			{
-				moveHor (-horImpulse);
+				if (transformPlayer1.eulerAngles.z < 180) 
+				{
+					transformPlayer1.Rotate (0, 0, 180);
+				}
+				moveHor (horImpulse);
 				myStats.stamina -= (costMovementBySecond * Time.deltaTime);
+
 			} 
 			else if (Input.GetKey (KeyCode.D)) 
 			{
+				if (transformPlayer1.eulerAngles.z >= 180) 
+				{
+					transformPlayer1.Rotate (0, 0, 180);
+				}
 				moveHor (horImpulse);
 				myStats.stamina -= (costMovementBySecond * Time.deltaTime);
 			}
 		} 
 		else if (myStats.playerNumber == 2) 
 		{
+			transformPlayer2 = GetComponent<Transform> ();
 			if (Input.GetKey (KeyCode.LeftArrow)) 
 			{
-				moveHor (-horImpulse);
+				if (transformPlayer2.eulerAngles.z < 180) 
+				{
+					transformPlayer2.Rotate (0, 0, 180);
+				}
+				moveHor (horImpulse);
 				myStats.stamina -= (costMovementBySecond * Time.deltaTime);
 			} 
 			else if (Input.GetKey (KeyCode.RightArrow)) 
 			{
+				if (transformPlayer2.eulerAngles.z >= 180) 
+				{
+					transformPlayer2.Rotate (0, 0, 180);
+				}
 				moveHor (horImpulse);
 				myStats.stamina -= (costMovementBySecond * Time.deltaTime);
 			}

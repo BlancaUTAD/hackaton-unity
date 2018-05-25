@@ -81,14 +81,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8445da7379571b74ca9e59961067587d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0
-  weaponCooldown: 0
-  weaponProjectile: {fileID: 1872511005503776, guid: 1aea4b784f588e747805f1a886024662,
+  weaponCooldownPeriodInSeconds: 0
+  weaponProjectile: {fileID: 1181762050514640, guid: 1aea4b784f588e747805f1a886024662,
     type: 2}
-  notToHit:
-    serializedVersion: 2
-    m_Bits: 0
+  weaponFirePoint: {fileID: 0}
   fireKey: Fire1
+  projectileSpeed: 200
+  projectileDamage: 0
 --- !u!212 &212810073850982146
 SpriteRenderer:
   m_ObjectHideFlags: 1

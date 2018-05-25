@@ -6,15 +6,19 @@ public class WeaponScript : MonoBehaviour {
 	
 	public float weaponCooldownPeriodInSeconds = 0;
 	public GameObject weaponProjectile;
+	public GameObject weaponFirePoint;
 	//public LayerMask notToHit;
 	public string fireKey;
+	public float projectileSpeed = 0;
+	public float projectileDamage = 0;
 
 	Transform firePoint;
 	float timeStamp = 0;
-
+	GameObject temporaryProjectile;
 	// Use this for initialization
 	void Awake () {
-		firePoint = transform.Find ("FirePoint");
+		firePoint = weaponFirePoint.transform;
+
 		if (firePoint == null) 
 		{
 			Debug.LogError ("No FIRE POINT");
@@ -27,7 +31,9 @@ public class WeaponScript : MonoBehaviour {
 		{
 			FireWeapon();
 			timeStamp = Time.time + weaponCooldownPeriodInSeconds;
+			Destroy (temporaryProjectile, 10);
 		}
+
 	}
 
 	void FireWeapon (){
@@ -39,7 +45,8 @@ public class WeaponScript : MonoBehaviour {
 		{
 			if (timeStamp <= Time.time) 
 			{
-				Instantiate (weaponProjectile, firePoint);
+				temporaryProjectile = Instantiate (weaponProjectile, firePoint) as GameObject;
+				temporaryProjectile.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * projectileSpeed);
 			}
 		}
 	}

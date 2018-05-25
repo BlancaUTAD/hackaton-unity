@@ -116,6 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horImpulse: 0
   costMovementBySecond: 5
+  isMovingRightPlayer1: 1
+  isMovingRightPlayer2: 1
 --- !u!114 &114729687791882398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f8a1af2e05a194c97583ee688fc870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 0
+  life: 100
   stamina: 100
   playerNumber: 1
 --- !u!212 &212251842653393924
@@ -139,6 +141,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -154,6 +157,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
