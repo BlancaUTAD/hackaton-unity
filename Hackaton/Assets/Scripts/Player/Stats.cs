@@ -29,4 +29,9 @@ public class Stats : MonoBehaviour {
 			}
 		}
 	}
+
+	void Update()
+	{
+
+	}
 }
