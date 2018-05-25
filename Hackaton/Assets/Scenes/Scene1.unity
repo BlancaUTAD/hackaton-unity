@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a35d8521b0f77974cac515481f71a652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeMatch: 5
+  timeMatch: 20
   countDownFinished: 0
   staminaPlayer1: 0
   staminaPlayer2: 0
