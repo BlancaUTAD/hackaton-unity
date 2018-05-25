@@ -2,38 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour {
 
-	private Canvas myCanvas;
-	private Scrollbar staminaBarPlayer1;
-	private Scrollbar staminaBarPlayer2;
-	private GameController currentGameController;
+	public Canvas myCanvas;
+	public Scrollbar staminaBarPlayer1;
+	public Scrollbar staminaBarPlayer2;
+	public GameController myGameController;
 
-	void Awake () 
+	void Start () 
 	{
-		myCanvas = GameObject.Find("CanvasGame").GetComponent<Canvas>();
+		myCanvas = GameObject.Find ("CanvasGame").GetComponent<Canvas>();
 		staminaBarPlayer1 = myCanvas.transform.Find ("StaminaPlayer1").GetComponent<Scrollbar> ();
 		staminaBarPlayer2 = myCanvas.transform.Find ("StaminaPlayer2").GetComponent<Scrollbar> ();
-		myCanvas.enabled = false;
+		myGameController = this.GetComponent<GameController> ();
 	}
 
 	void Update () 
 	{
-		if (currentGameController != null) 
-		{
-			staminaBarPlayer1.size = (currentGameController.staminaPlayer1 / 100);
-			staminaBarPlayer2.size = (currentGameController.staminaPlayer2 / 100);
-		} 
+		staminaBarPlayer1.size = (myGameController.staminaPlayer1 / 100);
+		staminaBarPlayer2.size = (myGameController.staminaPlayer2 / 100);
 	}
 
-	public void enableCanvas()
+	public void findCurrentGameController()
 	{
-		myCanvas.enabled = true;
-	}
-
-	public void setCurrentGameController(GameController gc)
-	{
-		currentGameController = gc;
+		
 	}
 }
