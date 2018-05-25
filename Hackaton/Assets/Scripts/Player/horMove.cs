@@ -13,11 +13,6 @@ public class horMove : MonoBehaviour {
 	private Transform transformPlayer1;
 	private Transform transformPlayer2;
 
-	[HideInInspector]
-	public bool isMovingRightPlayer1 = true;
-	[HideInInspector]
-	public bool isMovingRightPlayer2 = true;
-
 	// Use this for initialization
 	void Start () 
 	{
@@ -33,12 +28,14 @@ public class horMove : MonoBehaviour {
 		if (myStats.playerNumber == 1) 
 		{
 			transformPlayer1 = GetComponent<Transform> ();
+
 			if (Input.GetKey (KeyCode.A)) 
 			{
 				if (transformPlayer1.eulerAngles.z < 180) 
 				{
 					transformPlayer1.Rotate (0, 0, 180);
 				}
+
 				moveHor (horImpulse);
 				myStats.stamina -= (costMovementBySecond * Time.deltaTime);
 
@@ -49,6 +46,7 @@ public class horMove : MonoBehaviour {
 				{
 					transformPlayer1.Rotate (0, 0, 180);
 				}
+
 				moveHor (horImpulse);
 				myStats.stamina -= (costMovementBySecond * Time.deltaTime);
 			}

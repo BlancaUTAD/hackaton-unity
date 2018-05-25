@@ -15,6 +15,8 @@ public class WeaponScript : MonoBehaviour {
 	Transform firePoint;
 	float timeStamp = 0;
 	GameObject temporaryProjectile;
+	Vector2 playerForward;
+
 	// Use this for initialization
 	void Awake () {
 		firePoint = weaponFirePoint.transform;
@@ -27,7 +29,7 @@ public class WeaponScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown(fireKey))
+		if (Input.GetKeyDown(fireKey))
 		{
 			FireWeapon();
 			timeStamp = Time.time + weaponCooldownPeriodInSeconds;
@@ -45,9 +47,13 @@ public class WeaponScript : MonoBehaviour {
 		{
 			if (timeStamp <= Time.time) 
 			{
+				playerForward = this.transform.parent.right;
+
 				this.GetComponentInParent<Stats> ().stamina -= costFire;
+
 				temporaryProjectile = Instantiate (weaponProjectile, firePoint) as GameObject;
-				temporaryProjectile.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * projectileSpeed);
+				temporaryProjectile.transform.parent = null;
+				temporaryProjectile.GetComponent<Rigidbody2D> ().AddForce (playerForward * projectileSpeed);
 			}
 		}
 	}
