@@ -303,6 +303,11 @@ Prefab:
       propertyPath: weaponFirePoint
       value: 
       objectReference: {fileID: 947473119}
+    - target: {fileID: 114002679787045270, guid: bd135d05d4ee08f45985c70ab25999ac,
+        type: 2}
+      propertyPath: costFire
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd135d05d4ee08f45985c70ab25999ac, type: 2}
   m_IsPrefabParent: 0
@@ -466,6 +471,11 @@ Prefab:
       propertyPath: weaponFirePoint
       value: 
       objectReference: {fileID: 1975349663}
+    - target: {fileID: 114002679787045270, guid: bd135d05d4ee08f45985c70ab25999ac,
+        type: 2}
+      propertyPath: costFire
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd135d05d4ee08f45985c70ab25999ac, type: 2}
   m_IsPrefabParent: 0

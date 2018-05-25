@@ -10,7 +10,7 @@ public class WeaponScript : MonoBehaviour {
 	//public LayerMask notToHit;
 	public string fireKey;
 	public float projectileSpeed = 0;
-	public float projectileDamage = 0;
+	public float costFire;
 
 	Transform firePoint;
 	float timeStamp = 0;
@@ -45,6 +45,7 @@ public class WeaponScript : MonoBehaviour {
 		{
 			if (timeStamp <= Time.time) 
 			{
+				this.GetComponentInParent<Stats> ().stamina -= costFire;
 				temporaryProjectile = Instantiate (weaponProjectile, firePoint) as GameObject;
 				temporaryProjectile.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * projectileSpeed);
 			}

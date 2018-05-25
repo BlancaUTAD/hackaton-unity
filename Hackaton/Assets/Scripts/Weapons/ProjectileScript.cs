@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProjectileScript : MonoBehaviour {
 
 
+	public float projectileDamage = 100;
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +16,13 @@ public class ProjectileScript : MonoBehaviour {
 	void Update () {
 		
 	}
-
-
-
+	void OnCollisionEnter2D (Collision2D col)
+	{
+		Debug.Log ("Colision Disparo");
+		if (col.gameObject.tag == "Player") 
+		{
+			col.gameObject.GetComponent<Stats> ().life -= projectileDamage;
+		}
+		Destroy (this.gameObject);
+	}
 }
