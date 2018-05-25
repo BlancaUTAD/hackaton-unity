@@ -26,7 +26,6 @@ public class jump : MonoBehaviour {
 		if (playerNumber == 1 && Input.GetKeyDown (KeyCode.W)) {
 			
 			if (isGrounded) {
-				Debug.Log ("Salta1");
 				Jump (jumpHeight);
 			}
 		} 
@@ -35,7 +34,6 @@ public class jump : MonoBehaviour {
 			
 			if (isGrounded) 
 			{
-				Debug.Log ("Salta2");
 				Jump (jumpHeight);
 			}
 		}

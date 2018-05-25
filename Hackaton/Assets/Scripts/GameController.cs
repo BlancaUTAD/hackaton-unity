@@ -10,6 +10,9 @@ public class GameController : MonoBehaviour {
 	[HideInInspector]
 	public bool countDownFinished;
 
+	public float staminaPlayer1;
+	public float staminaPlayer2;
+
 	void Start () 
 	{
 		players = new GameObject[2];
@@ -21,6 +24,17 @@ public class GameController : MonoBehaviour {
 
 	void Update () 
 	{
+		if (players [0].GetComponent<Stats> ().playerNumber == 1) 
+		{
+			staminaPlayer1 = players [0].GetComponent<Stats> ().stamina;
+			staminaPlayer2 = players [1].GetComponent<Stats> ().stamina;
+		}
+		else 
+		{
+			staminaPlayer2 = players [0].GetComponent<Stats> ().stamina;
+			staminaPlayer1 = players [1].GetComponent<Stats> ().stamina;
+		}
+
 		for (int i = 0; i < players.Length; i++) 
 		{
 			if (players [i].GetComponent<Stats> ().life <= 0 || players [i].GetComponent<Stats> ().stamina <= 0) 
@@ -76,6 +90,7 @@ public class GameController : MonoBehaviour {
 
 	private IEnumerator countDown()
 	{
+		
 		yield return new WaitForSeconds (1);
 		Debug.Log ("3");
 		yield return new WaitForSeconds (1);

@@ -64,7 +64,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61784217290993138
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 0
-  costJump: 0
+  costJump: 20
 --- !u!114 &114272155166469510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horImpulse: 0
-  costMovementBySecond: 0
+  costMovementBySecond: 5
 --- !u!114 &114729687791882398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 0
-  stamina: 0
+  stamina: 100
   playerNumber: 1
 --- !u!212 &212251842653393924
 SpriteRenderer:
