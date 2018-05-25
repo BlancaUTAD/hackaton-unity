@@ -8,13 +8,15 @@ public class jump : MonoBehaviour {
 	private Rigidbody2D rigiBody;
 	bool isGrounded;
 	private int playerNumber;
+	public float costJump;
 
 	// Use this for initialization
 	void Start () {
 
-		jumpHeight = 10f;
+		jumpHeight = 2f;
 		rigiBody = this.GetComponent<Rigidbody2D>();
 		playerNumber = this.GetComponent<Stats> ().playerNumber;
+
 
 	}
 	
@@ -42,33 +44,23 @@ public class jump : MonoBehaviour {
 		 
 	void OnCollisionEnter2D(Collision2D coll)
 	{
-
-
 		if (coll.gameObject.name == "floor")
-			{
-
+		{
 			isGrounded = true;
-
 		}
-
 	}
 
-	void OnCollisionExit2D(Collision2D coll){
-	
-	
-		if (coll.gameObject.name == "floor") {
-
-			isGrounded = false;
-		
+	void OnCollisionExit2D(Collision2D coll)
+	{				
+		if (coll.gameObject.name == "floor") 
+		{
+			isGrounded = false;		
 		}
-			;
-
 	}
 
-
-	void Jump(float h){
-
+	void Jump(float h)
+	{
 		rigiBody.AddForce (new Vector2 (0, h), ForceMode2D.Impulse);
-
+		this.GetComponent<Stats> ().stamina -= costJump;
 	}
 }

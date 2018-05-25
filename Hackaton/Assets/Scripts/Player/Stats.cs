@@ -6,7 +6,6 @@ public class Stats : MonoBehaviour {
 
 	public float life;
 	public float stamina;
-	//[HideInInspector]
 	public int playerNumber;
 
 	// Use this for initialization
@@ -28,10 +27,5 @@ public class Stats : MonoBehaviour {
 				}
 			}
 		}
-	}
-
-	void Update()
-	{
-
 	}
 }
