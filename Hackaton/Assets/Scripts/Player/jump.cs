@@ -9,6 +9,7 @@ public class jump : MonoBehaviour {
 	bool isGrounded;
 	private int playerNumber;
 	public float costJump;
+    public AudioClip jumpSound;
 
 	// Use this for initialization
 	void Start () {
@@ -60,5 +61,8 @@ public class jump : MonoBehaviour {
 	{
 		rigiBody.AddForce (new Vector2 (0, h), ForceMode2D.Impulse);
 		this.GetComponent<Stats> ().stamina -= costJump;
+        AudioSource mySound=this.transform.GetComponent<AudioSource>();
+        mySound.clip = jumpSound;
+        mySound.Play();
 	}
 }

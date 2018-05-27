@@ -7,6 +7,9 @@ public class Stats : MonoBehaviour {
 	public float life;
 	public float stamina;
 	public int playerNumber;
+    public AudioClip deathSound;
+    public AudioClip staminaSound;
+
 
 	// Use this for initialization
 	void Start () 
@@ -28,4 +31,19 @@ public class Stats : MonoBehaviour {
 			}
 		}
 	}
+     void Update()
+    {
+        if (life<=0)
+        {
+            AudioSource mySound = this.transform.GetComponent<AudioSource>();
+            mySound.clip = deathSound;
+            mySound.Play();
+        }
+        else if (stamina <= 0)
+        {
+            AudioSource mySound = this.transform.GetComponent<AudioSource>();
+            mySound.clip = staminaSound;
+            mySound.Play();
+        }
+    }
 }

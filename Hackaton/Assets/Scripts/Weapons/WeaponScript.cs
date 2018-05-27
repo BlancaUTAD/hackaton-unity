@@ -11,6 +11,7 @@ public class WeaponScript : MonoBehaviour {
 	public string fireKey;
 	public float projectileSpeed = 0;
 	public float costFire;
+    public AudioClip fireSound;
 
 	Transform firePoint;
 	float timeStamp = 0;
@@ -54,7 +55,10 @@ public class WeaponScript : MonoBehaviour {
 				temporaryProjectile = Instantiate (weaponProjectile, firePoint) as GameObject;
 				temporaryProjectile.transform.parent = null;
 				temporaryProjectile.GetComponent<Rigidbody2D> ().AddForce (playerForward * projectileSpeed);
-			}
+                AudioSource mySound = this.transform.parent.GetComponent<AudioSource>();
+                mySound.clip = fireSound;
+                mySound.Play();
+            }
 		}
 	}
 }
