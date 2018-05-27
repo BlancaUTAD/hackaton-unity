@@ -38,9 +38,9 @@ public class horMove : MonoBehaviour {
 
 			if (Input.GetKey (KeyCode.A)) 
 			{
-				if (transformPlayer1.eulerAngles.z < 180) 
+				if (transformPlayer1.eulerAngles.y < 180) 
 				{
-                    transformPlayer1.Rotate (0, 0, 180);
+                    transformPlayer1.Rotate (0, 180, 0);
                 }
 
 				moveHor (horImpulse);
@@ -49,9 +49,9 @@ public class horMove : MonoBehaviour {
 			} 
 			else if (Input.GetKey (KeyCode.D)) 
 			{
-				if (transformPlayer1.eulerAngles.z >= 180) 
+				if (transformPlayer1.eulerAngles.y >= 180) 
 				{
-					transformPlayer1.Rotate (0, 0, 180);
+					transformPlayer1.Rotate (0, 180, 0);
                 }
 
 				moveHor (horImpulse);
@@ -63,18 +63,18 @@ public class horMove : MonoBehaviour {
 			transformPlayer2 = GetComponent<Transform> ();
 			if (Input.GetKey (KeyCode.LeftArrow)) 
 			{
-				if (transformPlayer2.eulerAngles.z < 180) 
+				if (transformPlayer2.eulerAngles.y < 180) 
 				{
-					transformPlayer2.Rotate (0, 0, 180);
+					transformPlayer2.Rotate (0, 180, 0);
 				}
 				moveHor (horImpulse);
 				myStats.stamina -= (costMovementBySecond * Time.deltaTime);
 			} 
 			else if (Input.GetKey (KeyCode.RightArrow)) 
 			{
-				if (transformPlayer2.eulerAngles.z >= 180) 
+				if (transformPlayer2.eulerAngles.y >= 180) 
 				{
-					transformPlayer2.Rotate (0, 0, 180);
+					transformPlayer2.Rotate (0, 180, 0);
 				}
 				moveHor (horImpulse);
 				myStats.stamina -= (costMovementBySecond * Time.deltaTime);
