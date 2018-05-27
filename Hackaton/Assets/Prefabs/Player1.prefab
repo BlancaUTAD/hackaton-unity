@@ -280,7 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 100
   stamina: 100
-  playerNumber: 2
+  playerNumber: 1
   deathSound: {fileID: 8300000, guid: 80a12d180e5648a4992e01b97ef6e9c4, type: 3}
   staminaSound: {fileID: 8300000, guid: 21904dfd4780cd24780e3f4a6e1bcccf, type: 3}
 --- !u!114 &114075281608468700
@@ -326,8 +326,8 @@ MonoBehaviour:
   weaponProjectile: {fileID: 1078789808345238, guid: 601099371c5b33f498301ef0944d19b5,
     type: 2}
   weaponFirePoint: {fileID: 1948362177907482}
-  fireKey: '[0]'
-  projectileSpeed: 200
+  fireKey: space
+  projectileSpeed: 900
   costFire: 20
   fireSound: {fileID: 8300000, guid: 0c44f1db53db4ad4585a79f758834fa1, type: 3}
 --- !u!212 &212734968017110852

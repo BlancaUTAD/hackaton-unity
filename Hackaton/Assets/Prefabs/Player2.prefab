@@ -313,8 +313,8 @@ MonoBehaviour:
   weaponProjectile: {fileID: 1503395637167076, guid: 84d774d8629c4c24e86fae2ff986767d,
     type: 2}
   weaponFirePoint: {fileID: 1804481924334294}
-  fireKey: space
-  projectileSpeed: 200
+  fireKey: '[0]'
+  projectileSpeed: 900
   costFire: 20
   fireSound: {fileID: 8300000, guid: 0c44f1db53db4ad4585a79f758834fa1, type: 3}
 --- !u!114 &114961231570656654
