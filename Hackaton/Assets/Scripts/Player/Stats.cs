@@ -10,12 +10,16 @@ public class Stats : MonoBehaviour {
     public AudioClip deathSound;
     public AudioClip staminaSound;
 
+    private Animator animator;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
-		// Asignamos el player number a cada jugador, nose si será necesario.
-		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+        animator = this.GetComponent<Animator>();
+        
+
+        // Asignamos el player number a cada jugador, nose si será necesario.
+        GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
 		for (int i = 0; i < players.Length; i++) 
 		{
 			if (players[i] != this.gameObject)
@@ -33,6 +37,8 @@ public class Stats : MonoBehaviour {
 	}
      void Update()
     {
+        animator.SetFloat("Life", life);
+
         if (life<=0)
         {
             AudioSource mySound = this.transform.GetComponent<AudioSource>();

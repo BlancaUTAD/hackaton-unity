@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class jump : MonoBehaviour {
 
-	public float jumpHeight;
+	public float jumpHeight = 2f;
 	private Rigidbody2D rigiBody;
-	bool isGrounded;
+	public bool isGrounded;
 	private int playerNumber;
 	public float costJump;
     public AudioClip jumpSound;
 
-	// Use this for initialization
-	void Start () {
+    private Animator animator;
 
-		jumpHeight = 2f;
+    // Use this for initialization
+    void Start () {
+
 		rigiBody = this.GetComponent<Rigidbody2D>();
 		playerNumber = this.GetComponent<Stats> ().playerNumber;
 
+        animator = this.GetComponent<Animator>();
 
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -46,15 +48,17 @@ public class jump : MonoBehaviour {
 		if (coll.gameObject.name == "floor")
 		{
 			isGrounded = true;
-		}
+            animator.SetBool("Grounded", true);
+        }
 	}
 
 	void OnCollisionExit2D(Collision2D coll)
 	{				
 		if (coll.gameObject.name == "floor") 
 		{
-			isGrounded = false;		
-		}
+			isGrounded = false;
+            animator.SetBool("Grounded", false);
+        }
 	}
 
 	void Jump(float h)

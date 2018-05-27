@@ -13,6 +13,8 @@ public class horMove : MonoBehaviour {
 	private Transform transformPlayer1;
 	private Transform transformPlayer2;
 
+    private Animator animator;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -20,10 +22,15 @@ public class horMove : MonoBehaviour {
 		horImpulse = 20;
 		maxVelocity = 5f;
 		myStats = this.GetComponent<Stats> ();
+
+        animator = this.GetComponent<Animator>();
+
 	}
 
 	// Update is called once per frame
 	void Update () {
+
+        animator.SetFloat("Velocity", rigid.velocity.magnitude);
 	
 		if (myStats.playerNumber == 1) 
 		{
@@ -33,8 +40,8 @@ public class horMove : MonoBehaviour {
 			{
 				if (transformPlayer1.eulerAngles.z < 180) 
 				{
-					transformPlayer1.Rotate (0, 0, 180);
-				}
+                    transformPlayer1.Rotate (0, 0, 180);
+                }
 
 				moveHor (horImpulse);
 				myStats.stamina -= (costMovementBySecond * Time.deltaTime);
@@ -45,7 +52,7 @@ public class horMove : MonoBehaviour {
 				if (transformPlayer1.eulerAngles.z >= 180) 
 				{
 					transformPlayer1.Rotate (0, 0, 180);
-				}
+                }
 
 				moveHor (horImpulse);
 				myStats.stamina -= (costMovementBySecond * Time.deltaTime);

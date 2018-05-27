@@ -18,8 +18,15 @@ public class WeaponScript : MonoBehaviour {
 	GameObject temporaryProjectile;
 	Vector2 playerForward;
 
-	// Use this for initialization
-	void Awake () {
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = this.GetComponent<Animator>();
+    }
+
+    // Use this for initialization
+    void Awake () {
 		firePoint = weaponFirePoint.transform;
 
 		if (firePoint == null) 
@@ -33,14 +40,22 @@ public class WeaponScript : MonoBehaviour {
 		if (Input.GetKeyDown(fireKey))
 		{
 			FireWeapon();
-			timeStamp = Time.time + weaponCooldownPeriodInSeconds;
+            animator.SetBool("Shoot", true);
+            
+            timeStamp = Time.time + weaponCooldownPeriodInSeconds;
 			Destroy (temporaryProjectile, 10);
-		}
+            
+        }
+    }
 
-	}
+    void LateUpdate()
+    {
+        animator.SetBool("Shoot", false);
+    }
 
-	void FireWeapon (){
-		if (weaponProjectile == null && firePoint == null) 
+    void FireWeapon (){
+        
+        if (weaponProjectile == null && firePoint == null) 
 		{
 			Debug.LogError ("No FIRE POINT and/or No Projectile");
 		} 
@@ -48,7 +63,9 @@ public class WeaponScript : MonoBehaviour {
 		{
 			if (timeStamp <= Time.time) 
 			{
-				playerForward = this.transform.parent.right;
+                
+
+                playerForward = this.transform.parent.right;
 
 				this.GetComponentInParent<Stats> ().stamina -= costFire;
 
@@ -58,7 +75,9 @@ public class WeaponScript : MonoBehaviour {
                 AudioSource mySound = this.transform.parent.GetComponent<AudioSource>();
                 mySound.clip = fireSound;
                 mySound.Play();
+                
             }
-		}
+            
+        }
 	}
 }
