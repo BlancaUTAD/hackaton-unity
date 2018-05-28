@@ -56,6 +56,7 @@ public class GameController : MonoBehaviour {
 
 	private void EndGameDead(GameObject looser)
 	{
+		Debug.Log ("Dead");
 		if (looser.GetComponent<Stats> ().playerNumber == 1) 
 		{
 			Debug.Log ("Player 2 Winner");
