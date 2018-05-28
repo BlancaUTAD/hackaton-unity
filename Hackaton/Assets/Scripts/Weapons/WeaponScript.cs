@@ -82,9 +82,7 @@ public class WeaponScript : MonoBehaviour {
 
 				pitchFactor = Random.Range (0.95f, 1.05f);
 
-				Debug.Log ("pitch->" + pitchFactor);
 				mySound.pitch = pitchFactor;
-				Debug.Log ("CurrPitch->" + mySound.pitch);
                 mySound.clip = fireSound;
                 mySound.Play();
                 
