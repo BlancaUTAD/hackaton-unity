@@ -41,7 +41,6 @@ public class Stats : MonoBehaviour {
 		if (coll.gameObject.tag == "Lava")
 		{
 			life = 0;
-			GameObject.Destroy (this);
 		}
 	}
 
