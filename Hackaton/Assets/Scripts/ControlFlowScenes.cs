@@ -18,11 +18,11 @@ public class ControlFlowScenes : MonoBehaviour {
 		int random = Random.Range(1,1);
 
 		if (existLevel) 
-			SceneManager.UnloadSceneAsync (2);
+			SceneManager.UnloadSceneAsync (5);
 
 		if (random == 1) 
 		{
-			SceneManager.LoadScene ("Scene2", LoadSceneMode.Additive);
+			SceneManager.LoadScene ("Scene5", LoadSceneMode.Additive);
 			existLevel = true;
 		}
 	}
