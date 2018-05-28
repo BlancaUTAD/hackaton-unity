@@ -19,7 +19,6 @@ public class WeaponScript : MonoBehaviour {
 	Vector2 playerForward;
 
 	float pitchFactor;
-	float pitchStart;
 	AudioSource mySound;
 
     private Animator animator;
