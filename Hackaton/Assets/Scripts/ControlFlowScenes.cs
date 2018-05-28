@@ -11,19 +11,37 @@ public class ControlFlowScenes : MonoBehaviour {
     private int random;
     private float currentTimeScale;
     public Text myText;
+    public Text textContPlayer1;
+    public Text textContPlayer2;
+    private int contPlayer1;
+    private int contPlayer2;
 
     void Start () 
 	{
         currentLevel = -1;
         previousLevels = new List<int>();
-        loadSceneRandom ();
+        contPlayer1 = 0;
+        contPlayer2 = 0;
+        loadSceneRandom (0);
 
     }
 
-    public void loadSceneRandom()
+    public void loadSceneRandom(int winner)
     {
+        if (winner == 1)
+        {
+            contPlayer1++;
+        }
+        else if (winner == 2)
+        {
+            contPlayer2++;
+        }
+    
         if (previousLevels.Count < 5)
         {
+            textContPlayer1.text = contPlayer1.ToString();
+            textContPlayer2.text = contPlayer2.ToString();
+        
             if (currentLevel > 0)
             {
                 bool existLevel = true;

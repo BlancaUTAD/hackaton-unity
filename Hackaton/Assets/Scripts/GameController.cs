@@ -60,14 +60,15 @@ public class GameController : MonoBehaviour {
 		if (looser.GetComponent<Stats> ().playerNumber == 1) 
 		{
 			Debug.Log ("Player 2 Winner");
-		} 
+            contTimeMatch = 0f;
+            GameController.FindObjectOfType<Camera>().GetComponent<ControlFlowScenes>().loadSceneRandom(2);
+        } 
 		else 
 		{
 			Debug.Log ("Player 1 Winner");
-		}
-
-		contTimeMatch = 0f;
-		GameController.FindObjectOfType<Camera> ().GetComponent<ControlFlowScenes>().loadSceneRandom();
+            contTimeMatch = 0f;
+            GameController.FindObjectOfType<Camera>().GetComponent<ControlFlowScenes>().loadSceneRandom(1);
+        }		
 	}
 
 	private void EndGameTime()
@@ -75,18 +76,21 @@ public class GameController : MonoBehaviour {
 		if (players [0].GetComponent<Stats> ().stamina > players [1].GetComponent<Stats> ().stamina)
 		{
 			Debug.Log("Player " +  players [0].GetComponent<Stats> ().playerNumber + " Winner");
-		} 
+            contTimeMatch = 0f;
+            GameController.FindObjectOfType<Camera>().GetComponent<ControlFlowScenes>().loadSceneRandom(1);
+        } 
 		else if (players [1].GetComponent<Stats> ().stamina > players [0].GetComponent<Stats> ().stamina) 
 		{
 			Debug.Log("Player " +  players [1].GetComponent<Stats> ().playerNumber +  "Winner");
-		} 
+            contTimeMatch = 0f;
+            GameController.FindObjectOfType<Camera>().GetComponent<ControlFlowScenes>().loadSceneRandom(2);
+        } 
 		else 
 		{
 			Debug.Log ("Tie");
-		}
-
-		contTimeMatch = 0f;
-		GameController.FindObjectOfType<Camera> ().GetComponent<ControlFlowScenes>().loadSceneRandom();
+            contTimeMatch = 0f;
+            GameController.FindObjectOfType<Camera>().GetComponent<ControlFlowScenes>().loadSceneRandom(0);
+        }
 	}
 
 	private IEnumerator countDown()
