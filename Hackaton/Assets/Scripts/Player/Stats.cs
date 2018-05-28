@@ -41,7 +41,9 @@ public class Stats : MonoBehaviour {
 
         if (life<=0)
         {
-            AudioSource mySound = this.transform.GetComponent<AudioSource>();
+			GameObject.Destroy(this.transform.Find ("Weapon").gameObject);
+
+			AudioSource mySound = this.transform.GetComponent<AudioSource>();
             mySound.clip = deathSound;
             mySound.Play();
         }
