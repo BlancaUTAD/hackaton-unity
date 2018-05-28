@@ -18,6 +18,10 @@ public class WeaponScript : MonoBehaviour {
 	GameObject temporaryProjectile;
 	Vector2 playerForward;
 
+	float pitchFactor;
+	float pitchStart;
+	AudioSource mySound;
+
     private Animator animator;
 
     private void Start()
@@ -33,6 +37,9 @@ public class WeaponScript : MonoBehaviour {
 		{
 			Debug.LogError ("No FIRE POINT");
 		}
+		mySound = this.transform.parent.GetComponent<AudioSource>();
+
+
 	}
 	
 	// Update is called once per frame
@@ -72,7 +79,10 @@ public class WeaponScript : MonoBehaviour {
 				temporaryProjectile = Instantiate (weaponProjectile, firePoint) as GameObject;
 				temporaryProjectile.transform.parent = null;
 				temporaryProjectile.GetComponent<Rigidbody2D> ().AddForce (playerForward * projectileSpeed);
-                AudioSource mySound = this.transform.parent.GetComponent<AudioSource>();
+
+				pitchFactor = Random.Range (0.95f, 1.05f);
+
+				mySound.pitch = pitchFactor;
                 mySound.clip = fireSound;
                 mySound.Play();
                 
