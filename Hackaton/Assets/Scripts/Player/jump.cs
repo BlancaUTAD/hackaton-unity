@@ -45,7 +45,7 @@ public class jump : MonoBehaviour {
 		 
 	void OnCollisionEnter2D(Collision2D coll)
 	{
-		if (coll.gameObject.name == "floor")
+		if (coll.gameObject.tag == "floor")
 		{
 			isGrounded = true;
             animator.SetBool("Grounded", true);
@@ -54,7 +54,7 @@ public class jump : MonoBehaviour {
 
 	void OnCollisionExit2D(Collision2D coll)
 	{				
-		if (coll.gameObject.name == "floor") 
+		if (coll.gameObject.tag == "floor") 
 		{
 			isGrounded = false;
             animator.SetBool("Grounded", false);
