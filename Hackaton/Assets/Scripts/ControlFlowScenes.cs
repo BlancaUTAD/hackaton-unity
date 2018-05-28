@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ControlFlowScenes : MonoBehaviour {
@@ -8,8 +9,10 @@ public class ControlFlowScenes : MonoBehaviour {
 	private int currentLevel;
     private List<int> previousLevels;
     private int random;
+    private float currentTimeScale;
+    public Text myText;
 
-	void Start () 
+    void Start () 
 	{
         currentLevel = -1;
         previousLevels = new List<int>();
@@ -68,6 +71,22 @@ public class ControlFlowScenes : MonoBehaviour {
             }
             currentLevel = random;
             previousLevels.Add(currentLevel);
+            StartCoroutine(countDown());
         }
+    }
+
+    private IEnumerator countDown()
+    {
+        Debug.Log("Entro");
+        yield return new WaitForSeconds(1);
+        myText.text = "3";
+        yield return new WaitForSeconds(1);
+        myText.text = "2";
+        yield return new WaitForSeconds(1);
+        myText.text = "1";
+        yield return new WaitForSeconds(1);
+        myText.text = "GO";
+        yield return new WaitForSeconds(1);
+        myText.text = "";
     }
 }

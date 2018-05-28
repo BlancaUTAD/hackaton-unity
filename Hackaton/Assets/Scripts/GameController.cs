@@ -91,15 +91,19 @@ public class GameController : MonoBehaviour {
 
 	private IEnumerator countDown()
 	{
-		
-		yield return new WaitForSeconds (1);
-		Debug.Log ("3");
-		yield return new WaitForSeconds (1);
-		Debug.Log ("2");
-		yield return new WaitForSeconds (1);
-		Debug.Log ("1");
-		yield return new WaitForSeconds (1);
-		Debug.Log ("GO");
-		countDownFinished = true;
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<horMove>().enabled = false;
+            players[i].GetComponent<jump>().enabled = false;
+            players[i].GetComponentInChildren<WeaponScript>().enabled = false;
+        }
+		yield return new WaitForSeconds (4);
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<horMove>().enabled = true;
+            players[i].GetComponent<jump>().enabled = true;
+            players[i].GetComponentInChildren<WeaponScript>().enabled = true;
+        }
+        countDownFinished = true;
 	}
 }

@@ -279,7 +279,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 20
+  isGrounded: 0
   costJump: 20
   jumpSound: {fileID: 8300000, guid: b905c2b0b49a56f47ba1d8462eab4c5d, type: 3}
 --- !u!114 &114272155166469510

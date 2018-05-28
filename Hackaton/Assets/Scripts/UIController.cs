@@ -24,9 +24,4 @@ public class UIController : MonoBehaviour {
 		staminaBarPlayer1.size = (myGameController.staminaPlayer1 / 100);
 		staminaBarPlayer2.size = (myGameController.staminaPlayer2 / 100);
 	}
-
-	public void findCurrentGameController()
-	{
-		
-	}
 }
