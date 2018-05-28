@@ -9,6 +9,8 @@ public class Stats : MonoBehaviour {
 	public int playerNumber;
     public AudioClip deathSound;
     public AudioClip staminaSound;
+	Rigidbody2D rigidBody;
+	public float staminaIncrease;
 
     private Animator animator;
 
@@ -16,6 +18,8 @@ public class Stats : MonoBehaviour {
     void Start () 
 	{
         animator = this.GetComponent<Animator>();
+		rigidBody = this.GetComponent<Rigidbody2D> ();
+		staminaIncrease = 0.1f;
         
 
         // Asignamos el player number a cada jugador, nose si será necesario.
@@ -63,5 +67,30 @@ public class Stats : MonoBehaviour {
             mySound.clip = staminaSound;
             mySound.Play();
         }
+
+		//Debug.Log(isMoving (rigidBody));
+
+		addStamina (isMoving (rigidBody));
+
     }
+
+	bool isMoving(Rigidbody2D r){
+	
+		if ((r.velocity).magnitude >= Mathf.Abs(0.5f)) {
+		
+			return true;
+		}
+
+		return false;
+	
+	}
+
+	void addStamina(bool moving){
+
+		if (moving == false) {
+
+			stamina = stamina + staminaIncrease;
+		}
+	
+	}
 }
