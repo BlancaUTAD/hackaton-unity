@@ -36,12 +36,12 @@ public class ControlFlowScenes : MonoBehaviour {
         {
             contPlayer2++;
         }
-    
+
+        textContPlayer1.text = contPlayer1.ToString();
+        textContPlayer2.text = contPlayer2.ToString();
+
         if (previousLevels.Count < 5)
         {
-            textContPlayer1.text = contPlayer1.ToString();
-            textContPlayer2.text = contPlayer2.ToString();
-        
             if (currentLevel > 0)
             {
                 bool existLevel = true;
@@ -65,7 +65,10 @@ public class ControlFlowScenes : MonoBehaviour {
             }
 
             if (currentLevel > 0)
+            {
+                Debug.Log("currentLevel: " + currentLevel);
                 SceneManager.UnloadSceneAsync(currentLevel);
+            }
 
             if (random == 1)
             {
@@ -90,6 +93,25 @@ public class ControlFlowScenes : MonoBehaviour {
             currentLevel = random;
             previousLevels.Add(currentLevel);
             StartCoroutine(countDown());
+        }
+
+        else
+        {
+            SceneManager.UnloadSceneAsync(currentLevel);
+            SceneManager.LoadScene("End", LoadSceneMode.Additive);
+            myText.fontSize = 50;
+            if (contPlayer1 > contPlayer2)
+            {
+                myText.text = "Winner player 1";
+            }
+            else if (contPlayer1 < contPlayer2)
+            {
+                myText.text = "Winner player 2";
+            }
+            else
+            {
+                myText.text = "Tie";
+            }
         }
     }
 
