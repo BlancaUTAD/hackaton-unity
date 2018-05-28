@@ -35,6 +35,17 @@ public class Stats : MonoBehaviour {
 			}
 		}
 	}
+
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		if (coll.gameObject.tag == "Lava")
+		{
+			life = 0;
+			GameObject.Destroy (this);
+		}
+	}
+
+
      void Update()
     {
         animator.SetFloat("Life", life);
