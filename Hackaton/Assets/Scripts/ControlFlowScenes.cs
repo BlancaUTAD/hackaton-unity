@@ -15,9 +15,13 @@ public class ControlFlowScenes : MonoBehaviour {
     public Text textContPlayer2;
     private int contPlayer1;
     private int contPlayer2;
+    public Image imageWinner;
+    public Sprite winnerPlayer1;
+    public Sprite winnerPlayer2;
 
     void Start () 
 	{
+        imageWinner.enabled = false;
         currentLevel = -1;
         previousLevels = new List<int>();
         contPlayer1 = 0;
@@ -98,20 +102,15 @@ public class ControlFlowScenes : MonoBehaviour {
         else
         {
             SceneManager.UnloadSceneAsync(currentLevel);
-            SceneManager.LoadScene("End", LoadSceneMode.Additive);
-            myText.fontSize = 50;
             if (contPlayer1 > contPlayer2)
             {
-                myText.text = "Winner player 1";
+                imageWinner.sprite = winnerPlayer1;
             }
             else if (contPlayer1 < contPlayer2)
             {
-                myText.text = "Winner player 2";
+                imageWinner.sprite = winnerPlayer2;
             }
-            else
-            {
-                myText.text = "Tie";
-            }
+            imageWinner.enabled = true;
         }
     }
 
