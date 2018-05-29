@@ -431,6 +431,7 @@ MonoBehaviour:
   countdown2: {fileID: 8300000, guid: 332312da2af488940b1112bdd658383b, type: 3}
   countdown1: {fileID: 8300000, guid: 780eef54141a1f64698903af3081f779, type: 3}
   countdownFight: {fileID: 8300000, guid: 0eb700f4992d2fe458a228f0be3cf7df, type: 3}
+  youWin: {fileID: 8300000, guid: 6f6e0fd3076ee86438ee07efe0e3fe1c, type: 3}
 --- !u!82 &446124599
 AudioSource:
   m_ObjectHideFlags: 0

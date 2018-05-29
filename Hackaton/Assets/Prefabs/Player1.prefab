@@ -208,54 +208,69 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - serializedVersion: 2
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -276,6 +291,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95652785268034696
 Animator:
   serializedVersion: 3
@@ -293,6 +309,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114039389876405476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -309,6 +326,16 @@ MonoBehaviour:
   playerNumber: 1
   deathSound: {fileID: 8300000, guid: 80a12d180e5648a4992e01b97ef6e9c4, type: 3}
   staminaSound: {fileID: 8300000, guid: 21904dfd4780cd24780e3f4a6e1bcccf, type: 3}
+  staminaIncrease: 0
+  frasesList:
+  - {fileID: 8300000, guid: a9f6f6e0c0eea2646b474385000c4ccd, type: 3}
+  - {fileID: 8300000, guid: f4560372469fce64c88a021ee17fd787, type: 3}
+  - {fileID: 8300000, guid: d191b6ae41a1b2d4fa1bddd41c7f6abb, type: 3}
+  - {fileID: 8300000, guid: 966b0de236acdd14eaadc0758fd8ece7, type: 3}
+  - {fileID: 8300000, guid: d1f3aa7ad4f41604785b241c0f393fdd, type: 3}
+  - {fileID: 8300000, guid: 8fda6b948ff68f04498ec67a211421b9, type: 3}
+  timeWaitFrase: 6
+  elapsedWaitFrase: 0
 --- !u!114 &114075281608468700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,6 +396,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -413,6 +441,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

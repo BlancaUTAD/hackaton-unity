@@ -11,6 +11,9 @@ public class Stats : MonoBehaviour {
     public AudioClip staminaSound;
 	Rigidbody2D rigidBody;
 	public float staminaIncrease;
+    public AudioClip[] frasesList;
+    public float timeWaitFrase;
+    public float elapsedWaitFrase;
 
     private Animator animator;
 
@@ -20,6 +23,8 @@ public class Stats : MonoBehaviour {
         animator = this.GetComponent<Animator>();
 		rigidBody = this.GetComponent<Rigidbody2D> ();
 		staminaIncrease = 0.1f;
+
+        elapsedWaitFrase = timeWaitFrase;
         
 
         // Asignamos el player number a cada jugador, nose si será necesario.
@@ -71,6 +76,19 @@ public class Stats : MonoBehaviour {
 		//Debug.Log(isMoving (rigidBody));
 
 		addStamina (isMoving (rigidBody));
+
+        if (elapsedWaitFrase <= 0)
+        {
+            int result = (int)Random.Range(0.0f, (frasesList.Length - 1));
+            AudioSource mySound2 = this.transform.GetComponent<AudioSource>();
+            mySound2.clip = frasesList[result];
+            mySound2.Play();
+            elapsedWaitFrase = timeWaitFrase;
+        }
+        else {
+            elapsedWaitFrase -= Time.deltaTime;
+        }
+
 
     }
 

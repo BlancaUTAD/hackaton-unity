@@ -22,6 +22,7 @@ public class ControlFlowScenes : MonoBehaviour {
     public AudioClip countdown2;
     public AudioClip countdown1;
     public AudioClip countdownFight;
+    public AudioClip youWin;
 
     void Start () 
 	{
@@ -115,6 +116,10 @@ public class ControlFlowScenes : MonoBehaviour {
                 imageWinner.sprite = winnerPlayer2;
             }
             imageWinner.enabled = true;
+            AudioSource mySound = this.transform.GetComponent<AudioSource>();
+            mySound.clip = youWin;
+            mySound.volume = 2f;
+            mySound.Play();
         }
     }
 
@@ -124,8 +129,11 @@ public class ControlFlowScenes : MonoBehaviour {
         Debug.Log("Entro");
         yield return new WaitForSeconds(1);
         myText.text = "3";
+    
         AudioSource mySound = this.transform.GetComponent<AudioSource>();
         mySound.clip = countdown3;
+        mySound.volume = 1.5f;
+
         mySound.Play();
         yield return new WaitForSeconds(1);
         myText.text = "2";
