@@ -105,11 +105,11 @@ public class Stats : MonoBehaviour {
     {
         if (life <= 0)
         {
-            if (this.transform.Find("Weapon") != null)
+            /*if (this.transform.Find("Weapon").gameObject != null)
             {
-                GameObject.Destroy(this.transform.Find("Weapon").gameObject);
+               GameObject.Destroy(this.transform.Find("Weapon").gameObject);
             }
-            
+           */ GameObject.Destroy(this.transform.Find("Weapon").gameObject);
             AudioSource mySound = this.transform.GetComponent<AudioSource>();
             mySound.clip = deathSound;
             mySound.Play();
