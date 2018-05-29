@@ -13,6 +13,8 @@ public class horMove : MonoBehaviour {
 	private Transform transformPlayer1;
 	private Transform transformPlayer2;
 
+
+	//Dama: Primero tengo que coger el animador para poder modificarlo más tarde.
     private Animator animator;
 
 	// Use this for initialization
@@ -23,6 +25,7 @@ public class horMove : MonoBehaviour {
 		maxVelocity = 5f;
 		myStats = this.GetComponent<Stats> ();
 
+		//Dama: en el start llamo al animador que debe estar en el mismo game object que este script.
         animator = this.GetComponent<Animator>();
 
 	}
@@ -30,6 +33,7 @@ public class horMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		//Dama: Seteo la variable del animator velocity, a que sea la misma, para que cuando se mueva, haga la animación de moverse.
         animator.SetFloat("Velocity", rigid.velocity.magnitude);
 	
 		if (myStats.playerNumber == 1) 

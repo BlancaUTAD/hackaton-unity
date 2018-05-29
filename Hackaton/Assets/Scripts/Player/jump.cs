@@ -11,6 +11,8 @@ public class jump : MonoBehaviour {
 	public float costJump;
     public AudioClip jumpSound;
 
+
+	//Dama: Primero tengo que coger el animador para poder modificarlo más tarde.
     private Animator animator;
 
     // Use this for initialization
@@ -19,6 +21,8 @@ public class jump : MonoBehaviour {
 		rigiBody = this.GetComponent<Rigidbody2D>();
 		playerNumber = this.GetComponent<Stats> ().playerNumber;
 
+
+		//Dama: en el start llamo al animador que debe estar en el mismo game object que este script.
         animator = this.GetComponent<Animator>();
 
     }
@@ -48,6 +52,8 @@ public class jump : MonoBehaviour {
 		if (coll.gameObject.tag == "floor")
 		{
 			isGrounded = true;
+
+			//Dama: cuando tocas el suelo, se inicia la animacion de dejar de estar en el aire.
             animator.SetBool("Grounded", true);
         }
 	}
@@ -57,6 +63,8 @@ public class jump : MonoBehaviour {
 		if (coll.gameObject.tag == "floor") 
 		{
 			isGrounded = false;
+
+			//Dama: cuando dejas de tocar el suelo, se inicia la animacion de dejar de estar en el suelo.
             animator.SetBool("Grounded", false);
         }
 	}

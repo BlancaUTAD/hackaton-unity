@@ -18,10 +18,13 @@ public class WeaponScript : MonoBehaviour {
 	float pitchFactor;
 	AudioSource mySound;
 
+
+	//Dama: Primero tengo que coger el animador para poder modificarlo más tarde.
     private Animator animator;
 
     private void Start()
     {
+		//Dama: en el start llamo al animador que debe estar en el mismo game object que este script.
         animator = this.GetComponent<Animator>(); //DAMA ESTUVO AQUÍ
     }
 
@@ -44,6 +47,8 @@ public class WeaponScript : MonoBehaviour {
 		if (Input.GetKeyDown(fireKey))
 		{
 			FireWeapon();
+
+			//Dama: cuando se dispara se setea a true, para hacer la animación de disparo. Pero solo queremos que se haga una vez. Y por eso más tarde en el LateUpdate, la seteamos falsa.
             animator.SetBool("Shoot", true);
             
 			Destroy (temporaryProjectile, 10);
@@ -53,6 +58,8 @@ public class WeaponScript : MonoBehaviour {
 
     void LateUpdate()
     {
+
+		//Dama: para poder volver al estado de que deje de disparar, la seteamos a false.
         animator.SetBool("Shoot", false);
     }
 
