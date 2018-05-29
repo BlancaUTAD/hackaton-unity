@@ -1394,7 +1394,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Blanca Ubis Mart\xEDnez,\n\"Feminist Killjoy\""
+  m_Text: "Blanca Ubis Mart\xEDnez,\n\"Snow\""
 --- !u!222 &1503130076
 CanvasRenderer:
   m_ObjectHideFlags: 0
