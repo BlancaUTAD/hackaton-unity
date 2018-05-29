@@ -18,6 +18,10 @@ public class ControlFlowScenes : MonoBehaviour {
     public Image imageWinner;
     public Sprite winnerPlayer1;
     public Sprite winnerPlayer2;
+    public AudioClip countdown3;
+    public AudioClip countdown2;
+    public AudioClip countdown1;
+    public AudioClip countdownFight;
 
     void Start () 
 	{
@@ -116,15 +120,28 @@ public class ControlFlowScenes : MonoBehaviour {
 
     private IEnumerator countDown()
     {
+        
         Debug.Log("Entro");
         yield return new WaitForSeconds(1);
         myText.text = "3";
+        AudioSource mySound = this.transform.GetComponent<AudioSource>();
+        mySound.clip = countdown3;
+        mySound.Play();
         yield return new WaitForSeconds(1);
         myText.text = "2";
+       
+        mySound.clip = countdown2;
+        mySound.Play();
         yield return new WaitForSeconds(1);
         myText.text = "1";
+       
+        mySound.clip = countdown1;
+        mySound.Play();
         yield return new WaitForSeconds(1);
         myText.text = "GO";
+      
+        mySound.clip = countdownFight;
+        mySound.Play();
         yield return new WaitForSeconds(1);
         myText.text = "";
     }
