@@ -58,21 +58,6 @@ public class Stats : MonoBehaviour {
     {
         animator.SetFloat("Life", life);
 
-        if (life<=0)
-        {
-			GameObject.Destroy(this.transform.Find ("Weapon").gameObject);
-
-			AudioSource mySound = this.transform.GetComponent<AudioSource>();
-            mySound.clip = deathSound;
-            mySound.Play();
-        }
-        else if (stamina <= 0)
-        {
-            AudioSource mySound = this.transform.GetComponent<AudioSource>();
-            mySound.clip = staminaSound;
-            mySound.Play();
-        }
-
 		//Debug.Log(isMoving (rigidBody));
 
 		addStamina (isMoving (rigidBody));
@@ -81,11 +66,15 @@ public class Stats : MonoBehaviour {
         {
             int result = (int)Random.Range(0.0f, (frasesList.Length - 1));
             AudioSource mySound2 = this.transform.GetComponent<AudioSource>();
-            mySound2.clip = frasesList[result];
-            mySound2.Play();
+            if (result < frasesList.Length)
+            {
+                mySound2.clip = frasesList[result];
+                mySound2.Play();
+            }
             elapsedWaitFrase = timeWaitFrase;
         }
-        else {
+        else
+        {
             elapsedWaitFrase -= Time.deltaTime;
         }
 
@@ -111,4 +100,25 @@ public class Stats : MonoBehaviour {
 		}
 	
 	}
+
+    public void PlaySoundDead()
+    {
+        if (life <= 0)
+        {
+            if (this.transform.Find("Weapon") != null)
+            {
+                GameObject.Destroy(this.transform.Find("Weapon").gameObject);
+            }
+            
+            AudioSource mySound = this.transform.GetComponent<AudioSource>();
+            mySound.clip = deathSound;
+            mySound.Play();
+        }
+        else if (stamina <= 0)
+        {
+            AudioSource mySound = this.transform.GetComponent<AudioSource>();
+            mySound.clip = staminaSound;
+            mySound.Play();
+        }
+    }
 }

@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour {
 	
-	public float weaponCooldownPeriodInSeconds = 0;
 	public GameObject weaponProjectile;
 	public GameObject weaponFirePoint;
-	//public LayerMask notToHit;
 	public string fireKey;
 	public float projectileSpeed = 0;
 	public float costFire;
     public AudioClip fireSound;
 
 	Transform firePoint;
-	float timeStamp = 0;
 	GameObject temporaryProjectile;
 	Vector2 playerForward;
 
@@ -25,7 +22,7 @@ public class WeaponScript : MonoBehaviour {
 
     private void Start()
     {
-        animator = this.GetComponent<Animator>();
+        animator = this.GetComponent<Animator>(); //DAMA ESTUVO AQUÍ
     }
 
     // Use this for initialization
@@ -36,6 +33,7 @@ public class WeaponScript : MonoBehaviour {
 		{
 			Debug.LogError ("No FIRE POINT");
 		}
+
 		mySound = this.transform.parent.GetComponent<AudioSource>();
 
 
@@ -48,7 +46,6 @@ public class WeaponScript : MonoBehaviour {
 			FireWeapon();
             animator.SetBool("Shoot", true);
             
-            timeStamp = Time.time + weaponCooldownPeriodInSeconds;
 			Destroy (temporaryProjectile, 10);
             
         }
@@ -67,25 +64,20 @@ public class WeaponScript : MonoBehaviour {
 		} 
 		else 
 		{
-			if (timeStamp <= Time.time) 
-			{
-                
+            
+            playerForward = this.transform.parent.right;
 
-                playerForward = this.transform.parent.right;
+			//this.GetComponentInParent<Stats> ().stamina -= costFire;
 
-				this.GetComponentInParent<Stats> ().stamina -= costFire;
+			temporaryProjectile = Instantiate (weaponProjectile, firePoint) as GameObject;
+			temporaryProjectile.transform.parent = null;
+			temporaryProjectile.GetComponent<Rigidbody2D> ().AddForce (playerForward * projectileSpeed);
 
-				temporaryProjectile = Instantiate (weaponProjectile, firePoint) as GameObject;
-				temporaryProjectile.transform.parent = null;
-				temporaryProjectile.GetComponent<Rigidbody2D> ().AddForce (playerForward * projectileSpeed);
+			pitchFactor = Random.Range (0.95f, 1.05f);
 
-				pitchFactor = Random.Range (0.95f, 1.05f);
-
-				mySound.pitch = pitchFactor;
-                mySound.clip = fireSound;
-                mySound.Play();
-                
-            }
+			mySound.pitch = pitchFactor;
+            mySound.clip = fireSound;
+            mySound.Play();
             
         }
 	}
