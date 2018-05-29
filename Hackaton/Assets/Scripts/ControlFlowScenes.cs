@@ -109,17 +109,21 @@ public class ControlFlowScenes : MonoBehaviour {
             SceneManager.UnloadSceneAsync(currentLevel);
             if (contPlayer1 > contPlayer2)
             {
-                imageWinner.sprite = winnerPlayer1;
+                //imageWinner.sprite = winnerPlayer1;
+				SceneManager.LoadScene(8);
             }
             else if (contPlayer1 < contPlayer2)
             {
-                imageWinner.sprite = winnerPlayer2;
+                //imageWinner.sprite = winnerPlayer2;
+				SceneManager.LoadScene(9);
             }
+
             imageWinner.enabled = true;
             AudioSource mySound = this.transform.GetComponent<AudioSource>();
             mySound.clip = youWin;
             mySound.volume = 2f;
             mySound.Play();
+
         }
     }
 
@@ -153,4 +157,10 @@ public class ControlFlowScenes : MonoBehaviour {
         yield return new WaitForSeconds(1);
         myText.text = "";
     }
+
+//	private IEnumerator WaitAfterYouWin()
+//	{
+//		yield return new WaitForSeconds(5);
+//		SceneManager.LoadScene (0);
+//	}
 }
