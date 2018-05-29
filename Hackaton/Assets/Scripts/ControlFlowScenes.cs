@@ -51,12 +51,12 @@ public class ControlFlowScenes : MonoBehaviour {
 
         if (previousLevels.Count < 5)
         {
-            if (currentLevel > 0)
+            if (currentLevel > 1)
             {
                 bool existLevel = true;
                 while (existLevel)
                 {
-                    random = Random.Range(1, 6);
+                    random = Random.Range(2, 7);
                     existLevel = false;
                     Debug.Log("previousLevels: " + previousLevels);
                     for (int i = 0; i < previousLevels.Count; i++)
@@ -70,32 +70,32 @@ public class ControlFlowScenes : MonoBehaviour {
             }
             else
             {
-                random = Random.Range(1, 6);
+                random = Random.Range(2, 7);
             }
 
-            if (currentLevel > 0)
+            if (currentLevel > 1)
             {
                 Debug.Log("currentLevel: " + currentLevel);
                 SceneManager.UnloadSceneAsync(currentLevel);
             }
 
-            if (random == 1)
+            if (random == 2)
             {
                 SceneManager.LoadScene("Scene1", LoadSceneMode.Additive);
             }
-            else if (random == 2)
+            else if (random == 3)
             {
                 SceneManager.LoadScene("Scene2", LoadSceneMode.Additive);
             }
-            else if (random == 3)
+            else if (random == 4)
             {
                 SceneManager.LoadScene("Scene3", LoadSceneMode.Additive);
             }
-            else if (random == 4)
+            else if (random == 5)
             {
                 SceneManager.LoadScene("Scene4", LoadSceneMode.Additive);
             }
-            else if (random == 5)
+            else if (random == 6)
             {
                 SceneManager.LoadScene("Scene5", LoadSceneMode.Additive);
             }
